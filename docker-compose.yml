@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: generation_documents
+    image: mysql:8
+    platform: linux/arm64
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: generation_documents
+      MYSQL_USER: generation_documents
+      MYSQL_PASSWORD: secret
+    volumes:
+      - generation_documents_data:/var/lib/mysql
+    restart: unless-stopped
+
+  phpmyadmin:
+    container_name: phpmyadmin_generation_documents
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    restart: unless-stopped
+
+volumes:
+  generation_documents_data:
