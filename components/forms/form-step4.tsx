@@ -18,35 +18,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Step4FormData, step4Schema } from "@/lib/form-schemas/step4Schema";
+import { generateStep4 } from "@/lib/pdf/pdf-generator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Trash } from "lucide-react";
 import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import { z } from "zod";
-
-const trainerSchema = z.object({
-  trainers: z.array(
-    z.object({
-      civility: z.enum(["Mr", "Mme"]),
-      firstName: z.string().min(1),
-      lastName: z.string().min(1),
-      email: z.string().email(),
-      phone: z.string(),
-      address: z.string(),
-      title: z.string(),
-      qualifications: z.array(z.string().min(1)),
-      trainings: z.string(),
-    })
-  ),
-});
-
-type TrainersFormData = z.infer<typeof trainerSchema>;
 
 export function FormStep4() {
   const [isGenerating, setIsGenerating] = useState(false);
 
-  const form = useForm<TrainersFormData>({
-    resolver: zodResolver(trainerSchema),
+  const form = useForm<Step4FormData>({
+    resolver: zodResolver(step4Schema),
     defaultValues: {
       trainers: [
         {
@@ -69,11 +52,10 @@ export function FormStep4() {
     name: "trainers",
   });
 
-  async function onSubmit(values: TrainersFormData) {
+  async function onSubmit(values: Step4FormData) {
     setIsGenerating(true);
     try {
-      console.log("Données des formateurs:", values);
-      // await generatePDF(values); // Ton générateur de PDF ici
+      await generateStep4(values);
     } catch (error) {
       console.error("Erreur PDF :", error);
     } finally {
