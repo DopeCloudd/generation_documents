@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Step1FormData, step1Schema } from "@/lib/form-schemas/step1Schema";
+import { toast } from "sonner";
 
 export function FormStep1() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -103,7 +104,9 @@ export function FormStep1() {
     setIsGenerating(true);
     try {
       await generateStep1(values);
+      toast.success("ZIP généré avec succès !");
     } catch (error) {
+      toast.error("Erreur lors de la génération du ZIP. Veuillez réessayer.");
       console.error("Erreur PDF :", error);
     } finally {
       setIsGenerating(false);
@@ -922,9 +925,6 @@ export function FormStep1() {
             Tester le formulaire
           </Button>
 
-          <Button type="button" variant="outline">
-            Prévisualiser
-          </Button>
           <Button type="submit" disabled={isGenerating}>
             {isGenerating && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {isGenerating ? "Génération en cours..." : "Générer le PDF"}

@@ -38,7 +38,7 @@ export async function generateStep4(formData: Step4FormData) {
   const url = window.URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `liste-des-formateurs.pdf`;
+  link.download = `EDOF.zip`;
   document.body.appendChild(link);
   link.click();
   link.remove();
