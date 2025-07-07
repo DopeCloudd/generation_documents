@@ -11,14 +11,16 @@ export async function POST(request: Request) {
 
     const zip = new JSZip();
 
-    const templates = getEtape3Documents(rawData);
+    const templates = await getEtape3Documents(rawData);
 
     // Ajouter chaque document au zip
     for (const template of templates) {
-      // Rendre le PDF en buffer
-      const pdfBuffer = await renderToBuffer(template.component);
-      // Ajouter le buffer au zip
-      zip.file(template.name, pdfBuffer);
+      if (template.component) {
+        const pdfBuffer = await renderToBuffer(template.component);
+        zip.file(template.name, pdfBuffer);
+      } else if (template.buffer) {
+        zip.file(template.name, template.buffer);
+      }
     }
 
     // Générer le zip
