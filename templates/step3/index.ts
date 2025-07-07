@@ -34,12 +34,15 @@ export const getEtape3Documents = async (
         data: formData,
       }) as ReactElement<DocumentProps>,
     },
+    // critere_1
     {
       name: "critere_1/indicateur_2/formulaire_satisfaction.docx",
       buffer: await readFile(
         "templates/step3/critere_1/indicateur_2/formulaire_satisfaction.docx"
       ),
     },
+
+    // critere_2
     {
       name: "critere_2/indicateur_4/compte_rendu_entretien.docx",
       buffer: await readFile(
@@ -80,6 +83,134 @@ export const getEtape3Documents = async (
       name: "critere_2/indicateur_5/Objectif et protocole d_évaluation de la formation.docx",
       buffer: await readFile(
         "templates/step3/critere_2/indicateur_5/Objectif et protocole d_évaluation de la formation.docx"
+      ),
+    },
+    {
+      name: "critere_2/indicateur_6/Livret d_évaluation .docx",
+      buffer: await readFile(
+        "templates/step3/critere_2/indicateur_6/Livret d_évaluation .docx"
+      ),
+    },
+    {
+      name: "critere_2/indicateur_6/Processus conception.jpg",
+      buffer: await readFile(
+        "templates/step3/critere_2/indicateur_6/Processus conception.jpg"
+      ),
+    },
+    {
+      name: "critere_2/indicateur_6/Processus coordination handicap.jpg",
+      buffer: await readFile(
+        "templates/step3/critere_2/indicateur_6/Processus coordination handicap.jpg"
+      ),
+    },
+    {
+      name: "critere_2/indicateur_8/Questionnaire d_évaluation initiale.docx",
+      buffer: await readFile(
+        "templates/step3/critere_2/indicateur_8/Questionnaire d_évaluation initiale.docx"
+      ),
+    },
+    {
+      name: "critere_2/indicateur_8/Quiz positionnement exemple.docx",
+      buffer: await readFile(
+        "templates/step3/critere_2/indicateur_8/Quiz positionnement exemple.docx"
+      ),
+    },
+
+    // critere_3
+    {
+      name: "critere_3/indicateur_9/Charte utilisateur numérique.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_9/Charte utilisateur numérique.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_9/Convocation.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_9/Convocation.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_10/GROUPES DE NIVEAUX.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_10/GROUPES DE NIVEAUX.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_10/Livret de Suivi pédagogique.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_10/Livret de Suivi pédagogique.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_10/PROGRAMME DE FORMATION.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_10/PROGRAMME DE FORMATION.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_10/Texte de loi_.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_10/Texte de loi_.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_11/ÉVALUATION À CHAUD.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_11/ÉVALUATION À CHAUD.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_11/ÉVALUATION À FROID.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_11/ÉVALUATION À FROID.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_11/Fiche d_évaluation d_atteinte des objectifs.xlsx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_11/Fiche d_évaluation d_atteinte des objectifs.xlsx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/CONVENTION_DE_FORMATION_PROFESSIONNELLE.doc",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/CONVENTION_DE_FORMATION_PROFESSIONNELLE.doc"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/Convocation (1).docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/Convocation (1).docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/Éviter le décrochage.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/Éviter le décrochage.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/Feuille d_émargement.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/Feuille d_émargement.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/legislation assiduité.pdf",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/legislation assiduité.pdf"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/Lettre lutte contre le décrochage.docx",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/Lettre lutte contre le décrochage.docx"
+      ),
+    },
+    {
+      name: "critere_3/indicateur_12/Processus réalisation.jpg",
+      buffer: await readFile(
+        "templates/step3/critere_3/indicateur_12/Processus réalisation.jpg"
       ),
     },
   ];
