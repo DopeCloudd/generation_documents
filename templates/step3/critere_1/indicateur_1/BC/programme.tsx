@@ -90,15 +90,7 @@ export const ProgrammeTemplate = ({ data }: { data: Step3FormData }) => (
 
       <Text style={styles.subtitle}>Objectifs pédagogiques :</Text>
       <View>
-        {[
-          "Évaluer et documenter les compétences professionnelles et personnelles.",
-          "Identifier les savoirs théoriques et les savoir-faire pratiques.",
-          "Déterminer les domaines d'intérêt et les motivations.",
-          "Évaluer les valeurs et les attentes professionnelles.",
-          "Formuler des objectifs professionnels clairs et réalisables.",
-          "Développer un plan d'action pour atteindre ces objectifs (étapes, ressources nécessaires, échéances).",
-          "Identifier les besoins en formation pour atteindre les objectifs professionnels.",
-        ].map((obj, i) => (
+        {data.pedagogicalObjectivesArray?.map((obj, i) => (
           <Text key={i} style={styles.listItem}>
             • {obj}
           </Text>
@@ -107,60 +99,33 @@ export const ProgrammeTemplate = ({ data }: { data: Step3FormData }) => (
 
       <Text style={styles.subtitle}>Méthodes pédagogiques mobilisées :</Text>
       <View>
-        {[
-          "Exposés interactifs",
-          "Études de cas",
-          "Travail en sous-groupes",
-          "Brainstorming",
-          "Ateliers pratiques",
-          "Mises en situation",
-          "Utilisation de supports visuels (diapositives, vidéos, infographies, etc.)",
-        ].map((method, i) => (
+        {data.pedagogicalMethodsArray?.map((obj, i) => (
           <Text key={i} style={styles.listItem}>
-            • {method}
+            • {obj}
           </Text>
         ))}
       </View>
 
       <Text style={styles.subtitle}>Programme de la formation :</Text>
       <View>
-        {[
-          "Phase 1 : Préliminaire (3 heures)",
-          "Module 1 : Accueil et cadrage du bilan (1 heure)",
-          "Module 2 : Analyse du parcours professionnel et personnel (2 heures)",
-          "Phase 2 : Investigation (15 heures)",
-          "Module 3 : Identification des compétences et des aptitudes (5 heures)",
-          "Module 4 : Exploration des motivations et des valeurs (3 heures)",
-          "Module 5 : Exploration des pistes professionnelles (7 heures)",
-          "Phase 3 : Conclusion (6 heures)",
-          "Module 6 : Élaboration du projet professionnel finalisé (4 heures)",
-          "Module 7 : Restitution finale et remise du document de synthèse (2 heures)",
-        ].map((item, i) => (
+        {data.formationProgramArray?.map((obj, i) => (
           <Text key={i} style={styles.listItem}>
-            • {item}
+            • {obj}
           </Text>
         ))}
       </View>
 
       <Text style={styles.subtitle}>Référent de la formation :</Text>
       <Text style={styles.paragraph}>
-        Votre contact direct et référent de la formation sera Stéphanie Valot,
-        dirigeante Orientation.
+        Votre contact direct et référent de la formation sera {data.firstName}{" "}
+        {data.lastName}, dirigeant(e) {data.companyName}.
       </Text>
 
       <Text style={styles.subtitle}>Modalités d’évaluation :</Text>
       <View>
-        {[
-          "Études de Cas Complexes",
-          "Simulation de Séances de Formation",
-          "Analyse Critique de Projets",
-          "Exercices Pratiques",
-          "Études de Cas Avancées",
-          "Passation d'une Évaluation Approfondie",
-          "Evaluation finale et passage de l’examen officiel devant un jury habilité",
-        ].map((evalItem, i) => (
+        {data.evaluationMethodsArray?.map((obj, i) => (
           <Text key={i} style={styles.listItem}>
-            • {evalItem}
+            • {obj}
           </Text>
         ))}
       </View>

@@ -21,10 +21,10 @@ export default function Step3Page() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Formulaire des documents administratifs</CardTitle>
+          <CardTitle>Informations pour la certification Qualiopi</CardTitle>
           <CardDescription>
             Ces informations seront utilisées pour générer les documents
-            administratifs
+            administratifs nécessaires à la certification Qualiopi.
           </CardDescription>
         </CardHeader>
         <CardContent>
