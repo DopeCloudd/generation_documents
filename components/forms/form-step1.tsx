@@ -23,7 +23,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { Step1FormData, step1Schema } from "@/lib/form-schemas/step1Schema";
 import { toast } from "sonner";
 
@@ -40,7 +39,6 @@ export function FormStep1() {
       companyAddress: "",
       companyPostalCode: "",
       companyCity: "",
-      companyActivity: "",
       companyPurpose: "",
 
       // Infos sur le dirigeant
@@ -53,10 +51,6 @@ export function FormStep1() {
       birthPlace: "",
 
       // Liste des souscripteurs
-      shareCount: "",
-      subscriptionAmount: "",
-      releasedAmount: "",
-      priceByShare: "",
       certifiedBy: "",
 
       // Déclaration non condamnation
@@ -139,7 +133,7 @@ export function FormStep1() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Mr">Mr</SelectItem>
+                      <SelectItem value="M.">Mr</SelectItem>
                       <SelectItem value="Mme">Mme</SelectItem>
                     </SelectContent>
                   </Select>
@@ -292,19 +286,6 @@ export function FormStep1() {
               )}
             />
             <FormField
-              name="companyActivity"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem className="md:col-span-2">
-                  <FormLabel>Activité de l’entreprise</FormLabel>
-                  <FormControl>
-                    <Textarea className="min-h-[100px]" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
               name="companyAddress"
               control={form.control}
               render={({ field }) => (
@@ -413,58 +394,6 @@ export function FormStep1() {
             3. Liste des souscripteurs d’actions SASU
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <FormField
-              name="shareCount"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nombre d’actions</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="priceByShare"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Prix d&apos;une action</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="subscriptionAmount"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Montant des souscriptions (€)</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="releasedAmount"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Montant libéré (€)</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <FormField
               name="certifiedBy"
               control={form.control}
@@ -872,7 +801,7 @@ export function FormStep1() {
             <h2 className="text-xl font-semibold">6. Date et signature</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <FormField
-                name="signatureDate"
+                name="signaturePlace"
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
@@ -885,7 +814,7 @@ export function FormStep1() {
                 )}
               />
               <FormField
-                name="signaturePlace"
+                name="signatureDate"
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>

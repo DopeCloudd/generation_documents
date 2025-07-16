@@ -115,7 +115,7 @@ export const ProjetDeStatutsTemplate = ({ data }: { data: Step1FormData }) => (
         l&apos;étranger
       </Text>
       <Text style={[styles.paragraph, styles.center, styles.bold]}>
-        « {data.companyActivity} »
+        « Formation continue d&apos;adultes. »
       </Text>
       <Text style={styles.paragraph}>
         Cet objet peut être étendu à tout autre domaine de l&apos;activité
@@ -186,16 +186,14 @@ export const ProjetDeStatutsTemplate = ({ data }: { data: Step1FormData }) => (
         numéraire ci- dessous énoncés.
       </Text>
       <Text style={styles.paragraph}>
-        Il est divisé en {data.shareCount} ({numberToWordsFr(data.shareCount)})
-        parts sociales de chacune {data.priceByShare} (
-        {numberToWordsFr(data.priceByShare)}) euros de valeur nominale,
-        numérotées de 1 à {data.shareCount} et toutes attribuées à
+        Il est divisé en 100 (cent) parts sociales de chacune 10 (dix) euros de
+        valeur nominale, numérotées de 1 à 100 et toutes attribuées à
         l&apos;associé unique, {data.civility} {data.firstName} {data.lastName}.
       </Text>
       <Text style={styles.paragraph}>
         Conformément à loi, l&apos;associé unique soussigné déclare expressément
-        que les {data.shareCount} parts sociales présentement créées sont
-        souscrites en totalité par lui, et entièrement libérées.
+        que les 100 parts sociales présentement créées sont souscrites en
+        totalité par lui, et entièrement libérées.
       </Text>
 
       {/* Article 8 */}

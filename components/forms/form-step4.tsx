@@ -468,7 +468,7 @@ export function FormStep4() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="Mr">Mr</SelectItem>
+                          <SelectItem value="M.">Mr</SelectItem>
                           <SelectItem value="Mme">Mme</SelectItem>
                         </SelectContent>
                       </Select>

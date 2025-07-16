@@ -109,11 +109,6 @@ const styles = StyleSheet.create({
 export const ListeDesSouscripteursTemplate: React.FC<{
   data: Step1FormData;
 }> = ({ data }) => {
-  // Calculer les totaux
-  const totalShares = data.shareCount;
-  const totalSubscriptions = data.subscriptionAmount;
-  const totalPaid = data.releasedAmount;
-
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -176,13 +171,13 @@ export const ListeDesSouscripteursTemplate: React.FC<{
               </Text>
             </View>
             <View style={styles.tableCol2}>
-              <Text style={styles.tableCell}>{data.shareCount}</Text>
+              <Text style={styles.tableCell}>100</Text>
             </View>
             <View style={styles.tableCol3}>
-              <Text style={styles.tableCell}>{data.subscriptionAmount} €</Text>
+              <Text style={styles.tableCell}>1000 €</Text>
             </View>
             <View style={styles.tableCol4}>
-              <Text style={styles.tableCell}>{data.releasedAmount} €</Text>
+              <Text style={styles.tableCell}>1000 €</Text>
             </View>
           </View>
 
@@ -224,15 +219,13 @@ export const ListeDesSouscripteursTemplate: React.FC<{
               </Text>
             </View>
             <View style={styles.tableCol2}>
-              <Text style={[styles.tableCell, styles.bold]}>{totalShares}</Text>
+              <Text style={[styles.tableCell, styles.bold]}>100</Text>
             </View>
             <View style={styles.tableCol3}>
-              <Text style={[styles.tableCell, styles.bold]}>
-                {totalSubscriptions} €
-              </Text>
+              <Text style={[styles.tableCell, styles.bold]}>1000 €</Text>
             </View>
             <View style={styles.tableCol4}>
-              <Text style={[styles.tableCell, styles.bold]}>{totalPaid} €</Text>
+              <Text style={[styles.tableCell, styles.bold]}>1000 €</Text>
             </View>
           </View>
         </View>
@@ -242,10 +235,9 @@ export const ListeDesSouscripteursTemplate: React.FC<{
           <Text style={styles.paragraph}>
             Le capital de la société est fixé à la somme de{" "}
             {data.companyCapital}€ ({data.companyCapital} euros), montant des
-            apports en numéraire. Il est divisé en {data.shareCount} (
-            {data.shareCount}) parts sociales de chacune {data.priceByShare} (
-            {data.priceByShare}) euros de valeur nominale, numérotées de 1 à{" "}
-            {data.shareCount} et toutes attribuées à l&apos;associé unique,{" "}
+            apports en numéraire. Il est divisé en cent (100) parts sociales de
+            chacune dix (10) euros de valeur nominale, numérotées de 1 à 100 et
+            toutes attribuées à l&apos;associé unique,{" "}
             {data.firstName.toUpperCase()} {data.lastName.toUpperCase()}.
           </Text>
         </View>

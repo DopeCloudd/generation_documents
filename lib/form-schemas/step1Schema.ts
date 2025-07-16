@@ -8,7 +8,6 @@ export const step1Schema = z.object({
   companyAddress: z.string(),
   companyPostalCode: z.string(),
   companyCity: z.string(),
-  companyActivity: z.string(),
   companyPurpose: z.string(),
 
   // Infos sur le dirigeant
@@ -21,10 +20,6 @@ export const step1Schema = z.object({
   birthPlace: z.string(),
 
   // Liste des souscripteurs
-  shareCount: z.string(),
-  subscriptionAmount: z.string(),
-  releasedAmount: z.string(),
-  priceByShare: z.string(),
   certifiedBy: z.string(),
 
   // Déclaration non condamnation
