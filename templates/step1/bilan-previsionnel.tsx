@@ -100,7 +100,7 @@ export const BilanPrevisionnelTemplate = ({
         {/* Identité entreprise */}
         <Text style={styles.sectionTitle}>Identité de l&apos;entreprise</Text>
         <Text>Dénomination : {data.companyName}</Text>
-        <Text>Activité : {data.companyActivity}</Text>
+        <Text>Activité : Formation continue d&apos;adultes.</Text>
         <Text>Forme juridique : {data.companyLegalForm}</Text>
         <Text>
           Adresse : {data.companyAddress}, {data.companyPostalCode}{" "}
