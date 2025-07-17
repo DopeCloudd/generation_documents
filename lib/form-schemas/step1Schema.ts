@@ -14,6 +14,7 @@ export const step1Schema = z.object({
   civility: z.string(),
   nationality: z.string(),
   firstName: z.string(),
+  firstName2and3: z.string(),
   lastName: z.string(),
   address: z.string(),
   birthDate: z.string(),

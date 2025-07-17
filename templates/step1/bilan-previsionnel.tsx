@@ -1,6 +1,29 @@
 import { Step1FormData } from "@/lib/form-schemas/step1Schema";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
 import type { Style } from "@react-pdf/types";
+import path from "path";
+
+// Cette ligne doit être exécutée côté serveur
+Font.register({
+  family: "Inter",
+  fonts: [
+    {
+      src: path.resolve(process.cwd(), "public/fonts/inter.ttf"),
+      fontWeight: "normal",
+    },
+    {
+      src: path.resolve(process.cwd(), "public/fonts/Inter_18pt-Bold.ttf"),
+      fontWeight: "bold",
+    },
+  ],
+});
 
 // ✅ Fonction utilitaire pour éviter les erreurs de style conditionnel
 const mergeStyles = (
@@ -9,6 +32,7 @@ const mergeStyles = (
 
 const styles = StyleSheet.create({
   page: {
+    fontFamily: "Inter",
     padding: 30,
     fontSize: 11,
     lineHeight: 1.5,
@@ -30,14 +54,27 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 4,
   },
   table: {
-    border: "1 solid #000",
+    marginTop: 4,
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4,
+  },
+  tableHeader: {
+    backgroundColor: "#e0e0e0",
+    paddingVertical: 6,
+    paddingHorizontal: 6,
+    fontSize: 12,
+    fontWeight: "bold",
+    border: "1 solid #000",
+    flexDirection: "row",
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
   },
   tableRow: {
     flexDirection: "row",
     alignItems: "center",
     borderBottom: "1 solid #ccc",
+    borderLeft: "1 solid #ccc",
+    borderRight: "1 solid #ccc",
     paddingVertical: 4,
     paddingHorizontal: 6,
   },
@@ -112,8 +149,13 @@ export const BilanPrevisionnelTemplate = ({
         </Text>
 
         {/* CHARGES */}
-        <Text style={styles.sectionTitle}>Charges</Text>
         <View style={styles.table}>
+          {/* ✅ Ligne d'en-tête */}
+          <View style={styles.tableHeader}>
+            <Text style={styles.cellLabel}>Charges</Text>
+            <Text style={styles.cellYear1}>Année 1</Text>
+            <Text style={styles.cellYear2}>Année 2</Text>
+          </View>
           {[
             [
               "Achats de marchandises",
@@ -165,8 +207,13 @@ export const BilanPrevisionnelTemplate = ({
         </View>
 
         {/* PRODUITS */}
-        <Text style={styles.sectionTitle}>Produits</Text>
         <View style={styles.table}>
+          {/* ✅ Ligne d'en-tête */}
+          <View style={styles.tableHeader}>
+            <Text style={styles.cellLabel}>Produits</Text>
+            <Text style={styles.cellYear1}>Année 1</Text>
+            <Text style={styles.cellYear2}>Année 2</Text>
+          </View>
           {[
             ["Vente de marchandises", "0", "0"],
             ["Vente de produits fabriqués", "0", "0"],
@@ -185,13 +232,14 @@ export const BilanPrevisionnelTemplate = ({
             </View>
           ))}
         </View>
-      </Page>
-      <Page size="A4" style={styles.page}>
         {/* COMPTE DE RESULTAT */}
-        <Text style={styles.sectionTitle}>
-          Compte de résultat simplifié prévisionnel
-        </Text>
         <View style={styles.table}>
+          {/* ✅ Ligne d'en-tête */}
+          <View style={styles.tableHeader}>
+            <Text style={styles.cellLabel}>Charges</Text>
+            <Text style={styles.cellYear1}>Année 1</Text>
+            <Text style={styles.cellYear2}>Année 2</Text>
+          </View>
           {[
             [
               "Résultat avant impôt",

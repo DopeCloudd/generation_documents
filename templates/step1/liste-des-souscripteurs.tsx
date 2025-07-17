@@ -1,10 +1,34 @@
 import { Step1FormData } from "@/lib/form-schemas/step1Schema";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
+import path from "path";
 import type React from "react";
+
+// Cette ligne doit être exécutée côté serveur
+Font.register({
+  family: "Inter",
+  fonts: [
+    {
+      src: path.resolve(process.cwd(), "public/fonts/inter.ttf"),
+      fontWeight: "normal",
+    },
+    {
+      src: path.resolve(process.cwd(), "public/fonts/Inter_18pt-Bold.ttf"),
+      fontWeight: "bold",
+    },
+  ],
+});
 
 // Définition des styles
 const styles = StyleSheet.create({
   page: {
+    fontFamily: "Inter",
     flexDirection: "column",
     backgroundColor: "#FFFFFF",
     padding: 30,
@@ -115,9 +139,8 @@ export const ListeDesSouscripteursTemplate: React.FC<{
         {/* En-tête */}
         <View style={styles.header}>
           <Text style={styles.title}>
-            Liste des souscripteurs d&apos;actions SASU
+            {data.companyLegalForm} {data.companyName}
           </Text>
-          <Text style={styles.subtitle}>SASU {data.companyName}</Text>
           <Text style={styles.subtitle}>
             Au capital de {data.companyCapital}€
           </Text>
@@ -233,12 +256,11 @@ export const ListeDesSouscripteursTemplate: React.FC<{
         {/* Description du capital */}
         <View style={styles.section}>
           <Text style={styles.paragraph}>
-            Le capital de la société est fixé à la somme de{" "}
-            {data.companyCapital}€ ({data.companyCapital} euros), montant des
-            apports en numéraire. Il est divisé en cent (100) parts sociales de
-            chacune dix (10) euros de valeur nominale, numérotées de 1 à 100 et
-            toutes attribuées à l&apos;associé unique,{" "}
-            {data.firstName.toUpperCase()} {data.lastName.toUpperCase()}.
+            Le capital de la société est fixé à la somme de 1000€ (1000 euros),
+            montant des apports en numéraire. Il est divisé en cent (100) parts
+            sociales de chacune dix (10) euros de valeur nominale, numérotées de
+            1 à 100 et toutes attribuées à l&apos;associé unique,{" "}
+            {data.firstName} {data.lastName.toUpperCase()}.
           </Text>
         </View>
 

@@ -1,5 +1,4 @@
 import { Step1FormData } from "@/lib/form-schemas/step1Schema";
-import { BilanPrevisionnelTemplate } from "@/templates/step1/bilan-previsionnel";
 import { DeclarationNonCondamnationTemplate } from "@/templates/step1/declaration-de-non-condamnation";
 import { ListeDesSouscripteursTemplate } from "@/templates/step1/liste-des-souscripteurs";
 import { ProjetDeStatutsTemplate } from "@/templates/step1/projet-de-statuts";
@@ -20,12 +19,12 @@ export const getEtape1Documents = (
       data: formData,
     }) as ReactElement<DocumentProps>,
   },
-  {
-    name: "Bilan_previsionnel.pdf",
-    component: BilanPrevisionnelTemplate({
-      data: formData,
-    }) as ReactElement<DocumentProps>,
-  },
+  // {
+  //   name: "Bilan_previsionnel.pdf",
+  //   component: BilanPrevisionnelTemplate({
+  //     data: formData,
+  //   }) as ReactElement<DocumentProps>,
+  // },
   {
     name: "Liste_des_souscripteurs.pdf",
     component: ListeDesSouscripteursTemplate({

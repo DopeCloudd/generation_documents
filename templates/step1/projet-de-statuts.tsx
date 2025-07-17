@@ -1,10 +1,34 @@
 import { Step1FormData } from "@/lib/form-schemas/step1Schema";
 import { numberToWordsFr } from "@/utils/convert";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
+import path from "path";
+
+// Cette ligne doit être exécutée côté serveur
+Font.register({
+  family: "Inter",
+  fonts: [
+    {
+      src: path.resolve(process.cwd(), "public/fonts/inter.ttf"),
+      fontWeight: "normal",
+    },
+    {
+      src: path.resolve(process.cwd(), "public/fonts/Inter_18pt-Bold.ttf"),
+      fontWeight: "bold",
+    },
+  ],
+});
 
 // Définition des styles
 const styles = StyleSheet.create({
   page: {
+    fontFamily: "Inter",
     flexDirection: "column",
     backgroundColor: "#FFFFFF",
     padding: 30,
@@ -26,6 +50,10 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 20,
+  },
+  sectionBottom: {
+    marginTop: "auto",
+    marginBottom: 30,
   },
   articleTitle: {
     fontSize: 12,
@@ -63,7 +91,7 @@ export const ProjetDeStatutsTemplate = ({ data }: { data: Step1FormData }) => (
           au capital de {data.companyCapital} €
         </Text>
         <Text style={styles.subtitle}>Siège social :</Text>
-        <Text style={styles.subtitle}>{data.address},</Text>
+        <Text style={styles.subtitle}>{data.companyAddress},</Text>
         <Text style={styles.subtitle}>
           {data.companyPostalCode}, {data.companyCity}
         </Text>
@@ -78,15 +106,17 @@ export const ProjetDeStatutsTemplate = ({ data }: { data: Step1FormData }) => (
       </View>
 
       {/* Section soussigné */}
-      <View style={styles.section}>
+      <View style={styles.sectionBottom}>
         <Text style={[styles.bold]}>
-          {data.civility === "Mr" ? "LE SOUSSIGNÉ :" : "LA SOUSSIGNÉE :"}{" "}
+          {data.civility === "M." ? "LE SOUSSIGNÉ :" : "LA SOUSSIGNÉE :"}{" "}
         </Text>
         <Text style={styles.paragraph}>
-          • {data.civility} {data.firstName} {data.lastName.toUpperCase()},
+          {data.civility} {data.firstName}, {data.firstName2and3}{" "}
+          {data.lastName.toUpperCase()},
         </Text>
         <Text style={styles.paragraph}>
-          né le {data.birthDate} à {data.birthPlace.toUpperCase()},
+          {data.civility === "M." ? "né" : "née"} le {data.birthDate} à{" "}
+          {data.birthPlace.toUpperCase()},
         </Text>
         <Text style={styles.paragraph}>
           de nationalité {data.nationality.toUpperCase()},

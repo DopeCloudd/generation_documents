@@ -42,9 +42,10 @@ export function FormStep1() {
       companyPurpose: "",
 
       // Infos sur le dirigeant
-      civility: "Mr",
+      civility: "M.",
       nationality: "",
       firstName: "",
+      firstName2and3: "",
       lastName: "",
       address: "",
       birthDate: "",
@@ -116,7 +117,7 @@ export function FormStep1() {
           <h3 className="text-lg font-semibold pt-4">
             A. Informations sur le dirigeant
           </h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             <FormField
               name="civility"
               control={form.control}
@@ -133,7 +134,7 @@ export function FormStep1() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="M.">Mr</SelectItem>
+                      <SelectItem value="M.">M.</SelectItem>
                       <SelectItem value="Mme">Mme</SelectItem>
                     </SelectContent>
                   </Select>
@@ -159,7 +160,20 @@ export function FormStep1() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Prénoms</FormLabel>
+                  <FormLabel>1er prénom</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Valentin" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="firstName2and3"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>2ème et 3ème prénoms</FormLabel>
                   <FormControl>
                     <Input placeholder="Valentin" {...field} />
                   </FormControl>
@@ -328,7 +342,7 @@ export function FormStep1() {
         </div>
 
         {/* SECTION 2 */}
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <h2 className="text-xl font-semibold">
             2. Declaration de non condamnation et de filiation
           </h2>
@@ -386,12 +400,12 @@ export function FormStep1() {
               )}
             />
           </div>
-        </div>
+        </div> */}
 
-        {/* SECTION 3 */}
+        {/* Liste des souscripteurs */}
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">
-            3. Liste des souscripteurs d’actions SASU
+            2. Liste des souscripteurs d’actions SASU
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <FormField
@@ -410,9 +424,9 @@ export function FormStep1() {
           </div>
         </div>
 
-        {/* SECTION 4 */}
+        {/* Projet de statuts */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">4. Projet de statuts</h2>
+          <h2 className="text-xl font-semibold">3. Projet de statuts</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <FormField
               name="rcsName"
@@ -427,25 +441,12 @@ export function FormStep1() {
                 </FormItem>
               )}
             />
-            <FormField
-              name="firstName"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Prénoms</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Valentin" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
           </div>
         </div>
 
-        {/* Section 5 */}
+        {/* Bilan prévisionnel */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">5. Bilan prévisionnel</h2>
+          <h2 className="text-xl font-semibold">4. Bilan prévisionnel</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <FormField
@@ -796,9 +797,9 @@ export function FormStep1() {
             />
           </div>
 
-          {/* SECTION 6 */}
+          {/* Date et signature */}
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold">6. Date et signature</h2>
+            <h2 className="text-xl font-semibold">5. Date et signature</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <FormField
                 name="signaturePlace"
