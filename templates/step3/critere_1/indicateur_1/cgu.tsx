@@ -1,8 +1,31 @@
 import { Step3FormData } from "@/lib/form-schemas/step3Schema";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
+import path from "path";
+
+// Cette ligne doit être exécutée côté serveur
+Font.register({
+  family: "Inter",
+  fonts: [
+    {
+      src: path.resolve(process.cwd(), "public/fonts/inter.ttf"),
+      fontWeight: "normal",
+    },
+    {
+      src: path.resolve(process.cwd(), "public/fonts/Inter_18pt-Bold.ttf"),
+      fontWeight: "bold",
+    },
+  ],
+});
 
 const styles = StyleSheet.create({
-  page: { padding: 40, fontSize: 12, lineHeight: 1.6, fontFamily: "Helvetica" },
+  page: { padding: 40, fontSize: 12, lineHeight: 1.6, fontFamily: "Inter" },
   section: { marginBottom: 20 },
   title: {
     fontSize: 18,
