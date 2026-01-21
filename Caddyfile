@@ -1,0 +1,3 @@
+automatisationdocuments.ovh {
+  reverse_proxy app:3000
+}

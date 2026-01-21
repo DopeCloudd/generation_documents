@@ -1,10 +1,22 @@
 version: "3.8"
 
 services:
+  app:
+    container_name: generation_documents_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+      BETTER_AUTH_URL: https://automatisationdocuments.ovh
+      DATABASE_URL: mysql://generation_documents:secret@db:3306/generation_documents
+    depends_on:
+      - db
+    restart: unless-stopped
+
   db:
     container_name: generation_documents
     image: mysql:8
-    platform: linux/arm64
     ports:
       - "3306:3306"
     environment:
@@ -19,7 +31,6 @@ services:
   phpmyadmin:
     container_name: phpmyadmin_generation_documents
     image: phpmyadmin/phpmyadmin
-    platform: linux/amd64
     depends_on:
       - db
     ports:
@@ -29,5 +40,21 @@ services:
       PMA_PORT: 3306
     restart: unless-stopped
 
+  caddy:
+    container_name: generation_documents_caddy
+    image: caddy:2
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
 volumes:
   generation_documents_data:
+  caddy_data:
+  caddy_config:
